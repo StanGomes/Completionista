@@ -1,7 +1,13 @@
 package com.stansdevhouse.explore
 
+import com.stansdevhouse.network.RawgApiService
 import com.stansdevhouse.network.response.GamesResultResponse
+import javax.inject.Inject
+import javax.inject.Singleton
 
-interface ExploreRepository {
-    suspend fun getTopGames(): List<GamesResultResponse>
+@Singleton
+class ExploreRepository @Inject constructor(private val rawgApiService: RawgApiService) {
+    suspend fun getTopGames(): List<GamesResultResponse> =
+        rawgApiService.getAllGames().games
+
 }

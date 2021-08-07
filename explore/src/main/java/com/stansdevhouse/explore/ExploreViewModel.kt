@@ -1,6 +1,5 @@
 package com.stansdevhouse.explore
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.stansdevhouse.network.response.GamesResultResponse
@@ -29,7 +28,6 @@ class ExploreViewModel @Inject constructor(getTopGamesUseCase: GetTopGamesUseCas
                 .onEach {
                     it.handleResult(
                         successBlock = { gameResults ->
-                            Log.d("STANSTAN", "ExploreScreen: loaded $gameResults")
                             _viewState.value = ExploreViewState(topGames = gameResults)
                         },
                         failureBlock = { errorString ->
