@@ -1,0 +1,8 @@
+rootProject.name = "Completionista"
+include ':app'
+include ':collection'
+include ':explore'
+include ':ui'
+include ':data'
+include ':core'
+include ':network'
