@@ -11,6 +11,6 @@ class ExploreRepository @Inject constructor(private val rawgApiService: RawgApiS
     suspend fun getTopGames(): List<GamesResultResponse> =
         rawgApiService.getAllGames().games
 
-    suspend fun getGameDetails(id: Int): GameDetailsResponse = rawgApiService.getGameById(id)
+    suspend fun getGameDetails(id: Long): GameDetailsResponse = rawgApiService.getGameById(id)
 
 }

@@ -19,7 +19,7 @@ data class GamesResultResponse(
     @SerializedName("genres")
     val genres: List<Genre>,
     @SerializedName("id")
-    val id: Int,
+    val id: Long,
     @SerializedName("metacritic")
     val metacritic: Int,
     @SerializedName("name")

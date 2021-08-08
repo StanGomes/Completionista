@@ -15,5 +15,5 @@ class ShowGameDetailsUseCase @Inject constructor(
         return gameDetailsResponseToGameDetails.map(exploreRepository.getGameDetails(params.gameId))
     }
 
-    data class Params(val gameId: Int)
+    data class Params(val gameId: Long)
 }

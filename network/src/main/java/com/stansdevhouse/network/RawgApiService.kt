@@ -10,5 +10,5 @@ interface RawgApiService {
     suspend fun getAllGames(): GamesResponse
 
     @GET("games/{id}")
-    suspend fun getGameById(@Path("id") id: Int): GameDetailsResponse
+    suspend fun getGameById(@Path("id") id: Long): GameDetailsResponse
 }
