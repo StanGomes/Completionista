@@ -29,7 +29,8 @@ fun CarouselCardNormal(
         onClick = onClick,
         modifier = modifier,
         shape = RoundedCornerShape(8.dp),
-        backgroundColor = MaterialTheme.colors.surface
+        backgroundColor = MaterialTheme.colors.surface,
+        elevation = 8.dp
     ) {
         Box {
             Image(
