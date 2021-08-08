@@ -9,8 +9,7 @@ import javax.inject.Inject
 class ShowGameDetailsUseCase @Inject constructor(
     private val exploreRepository: ExploreRepository,
     private val gameDetailsResponseToGameDetails: GameDetailsResponseToGameDetails
-) :
-    UseCaseWithParams<GameDetails, ShowGameDetailsUseCase.Params>() {
+) : UseCaseWithParams<GameDetails, ShowGameDetailsUseCase.Params>() {
 
     override suspend fun doWork(params: Params): GameDetails {
         return gameDetailsResponseToGameDetails.map(exploreRepository.getGameDetails(params.gameId))

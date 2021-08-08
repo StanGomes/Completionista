@@ -12,14 +12,14 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/collection" />
             <option value="$PROJECT_DIR$/core" />
             <option value="$PROJECT_DIR$/data" />
             <option value="$PROJECT_DIR$/domain" />
-            <option value="$PROJECT_DIR$/explore" />
-            <option value="$PROJECT_DIR$/game-details" />
             <option value="$PROJECT_DIR$/network" />
-            <option value="$PROJECT_DIR$/ui" />
+            <option value="$PROJECT_DIR$/ui-collection" />
+            <option value="$PROJECT_DIR$/ui-common" />
+            <option value="$PROJECT_DIR$/ui-explore" />
+            <option value="$PROJECT_DIR$/ui-game-details" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

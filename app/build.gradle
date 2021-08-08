@@ -43,8 +43,8 @@ android {
 
 dependencies {
 
-    implementation(project(":collection"))
-    implementation(project(":explore"))
+    implementation(project(':ui-collection'))
+    implementation(project(':ui-explore'))
     implementation(project(":core"))
     implementation(project(":network"))
     implementation(project(":domain"))
