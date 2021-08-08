@@ -3,7 +3,6 @@ package com.stansdevhouse.explore
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.LinearProgressIndicator
 import androidx.compose.runtime.Composable
@@ -43,11 +42,14 @@ fun ExploreScreen(exploreViewModel: ExploreViewModel = viewModel()) {
                 rememberPagerState(pageCount = topGames.size, initialOffscreenLimit = 3)
             HorizontalPager(
                 state = pagerState,
-                itemSpacing = 16.dp,
-                modifier = Modifier.padding(8.dp)
+                itemSpacing = 16.dp
             ) { page ->
                 val game = topGames[page]
                 CarouselCardNormal(
+                    onClick = { id ->
+                        exploreViewModel.onCardClicked(id)
+                    },
+                    id = game.id,
                     title = game.name,
                     imageUrl = game.backgroundImage
                 )

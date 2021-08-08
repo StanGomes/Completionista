@@ -1,6 +1,7 @@
-package com.stansdevhouse.explore
+package com.stansdevhouse.explore.usecase
 
 import com.stansdevhouse.core.UseCase
+import com.stansdevhouse.explore.ExploreRepository
 import com.stansdevhouse.network.response.GamesResultResponse
 import javax.inject.Inject
 

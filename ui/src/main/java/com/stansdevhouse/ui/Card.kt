@@ -4,6 +4,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
 import androidx.compose.material.ExperimentalMaterialApi
@@ -20,10 +21,12 @@ import coil.compose.rememberImagePainter
 @ExperimentalUnitApi
 @ExperimentalMaterialApi
 @Composable
-fun CarouselCardNormal(title: String, imageUrl: String) {
+fun CarouselCardNormal(title: String, imageUrl: String, id: Int, onClick: (Int) -> Unit) {
     Card(
-        onClick = { },
-        modifier = Modifier.height(180.dp),
+        onClick = { onClick(id) },
+        modifier = Modifier
+            .height(360.dp)
+            .padding(horizontal = 16.dp),
         shape = RoundedCornerShape(8.dp),
         backgroundColor = MaterialTheme.colors.surface
     ) {
@@ -32,7 +35,7 @@ fun CarouselCardNormal(title: String, imageUrl: String) {
                 painter = rememberImagePainter(imageUrl),
                 modifier = Modifier.fillMaxSize(),
                 contentDescription = title,
-                alpha = 0.4F,
+                alpha = 0.2F,
                 contentScale = ContentScale.Crop
             )
             SmallCarouselTitle(title = title, modifier = Modifier.align(Alignment.Center))
@@ -46,7 +49,9 @@ fun CarouselCardNormal(title: String, imageUrl: String) {
 @Composable
 fun CarouselCardNormalPreview() {
     CarouselCardNormal(
-        title = "GTA 5",
-        imageUrl = "https://media.rawg.io/media/games/84d/84da2ac3fdfc6507807a1808595afb12.jpg"
+        title = "Counter Strike: Global Offensive somme more ",
+        imageUrl = "https://media.rawg.io/media/games/84d/84da2ac3fdfc6507807a1808595afb12.jpg",
+        onClick = {},
+        id = 100
     )
 }

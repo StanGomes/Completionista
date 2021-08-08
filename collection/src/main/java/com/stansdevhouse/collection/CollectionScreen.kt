@@ -43,7 +43,9 @@ fun CollectionScreen(collectionViewModel: CollectionViewModel = viewModel()) {
             HorizontalPager(state = pagerState) { page ->
                 CarouselCardNormal(
                     title = inProgressGames[page].title,
-                    imageUrl = "https://media.rawg.io/media/games/84d/84da2ac3fdfc6507807a1808595afb12.jpg"
+                    imageUrl = "https://media.rawg.io/media/games/84d/84da2ac3fdfc6507807a1808595afb12.jpg",
+                    onClick = {},
+                    id = 100
                 )
             }
         }
