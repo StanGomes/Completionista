@@ -19,7 +19,7 @@
             <option value="$PROJECT_DIR$/ui-collection" />
             <option value="$PROJECT_DIR$/ui-common" />
             <option value="$PROJECT_DIR$/ui-explore" />
-            <option value="$PROJECT_DIR$/ui-game-details" />
+            <option value="$PROJECT_DIR$/ui-gamedetails" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

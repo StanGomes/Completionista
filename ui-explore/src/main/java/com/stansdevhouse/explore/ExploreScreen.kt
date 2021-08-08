@@ -10,7 +10,6 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.ExperimentalUnitApi
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.rememberPagerState
 import com.stansdevhouse.ui.*
@@ -19,7 +18,7 @@ import com.stansdevhouse.ui.*
 @ExperimentalUnitApi
 @ExperimentalPagerApi
 @Composable
-fun ExploreScreen(exploreViewModel: ExploreViewModel = viewModel()) {
+fun ExploreScreen(exploreViewModel: ExploreViewModel, openShowDetails: (Int) -> Unit) {
 
     val viewState by rememberFlowWithLifecycle(flow = exploreViewModel.viewState).collectAsState(
         ExploreViewState()
@@ -43,9 +42,7 @@ fun ExploreScreen(exploreViewModel: ExploreViewModel = viewModel()) {
                 val game = topGames[pageNum]
                 CarouselCardNormal(
                     modifier = modifier,
-                    onClick = { id ->
-                        exploreViewModel.onCardClicked(id)
-                    },
+                    onClick = { id -> openShowDetails(id) },
                     id = game.id,
                     title = game.title,
                     imageUrl = game.imageUrl
