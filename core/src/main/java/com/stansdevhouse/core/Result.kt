@@ -6,14 +6,14 @@ sealed class Result<out T> {
     object Loading : Result<Nothing>()
 
     fun handleResult(
-        successBlock: (T) -> Unit = {},
-        failureBlock: (String) -> Unit = {},
-        loading: () -> Unit = {}
+        onSuccess: (T) -> Unit = {},
+        onFailure: (String) -> Unit = {},
+        onLoading: () -> Unit = {}
     ) {
         when (this) {
-            is Success -> successBlock(data)
-            is Failure -> failureBlock(errorData)
-            is Loading -> loading()
+            is Success -> onSuccess(data)
+            is Failure -> onFailure(errorData)
+            is Loading -> onLoading()
         }
     }
 }

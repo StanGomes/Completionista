@@ -33,13 +33,13 @@ class ExploreViewModel @Inject constructor(
             getTopGamesUseCase()
                 .onEach {
                     it.handleResult(
-                        successBlock = { gamesResult ->
+                        onSuccess = { gamesResult ->
                             _viewState.value = ExploreViewState(topGames = gamesResult)
                         },
-                        failureBlock = { errorString ->
+                        onFailure = { errorString ->
                             _viewState.value = ExploreViewState(error = errorString)
                         },
-                        loading = {
+                        onLoading = {
                             _viewState.value = ExploreViewState(loading = true)
                         }
                     )
@@ -52,7 +52,7 @@ class ExploreViewModel @Inject constructor(
             showGameDetailsUseCase(params = ShowGameDetailsUseCase.Params(gameId = id))
                 .onEach {
                     it.handleResult(
-                        successBlock = { gameDetails ->
+                        onSuccess = { gameDetails ->
                             Log.d("STANSTAN", "onCardClicked: ${gameDetails.description}")
                         }
                     )
