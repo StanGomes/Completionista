@@ -8,17 +8,12 @@ import androidx.compose.material.LinearProgressIndicator
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.ExperimentalUnitApi
-import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.google.accompanist.pager.ExperimentalPagerApi
-import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.rememberPagerState
-import com.stansdevhouse.ui.CarouselCardNormal
-import com.stansdevhouse.ui.SmallCarouselTitle
-import com.stansdevhouse.ui.Toolbar
+import com.stansdevhouse.ui.*
 
 @ExperimentalMaterialApi
 @ExperimentalUnitApi
@@ -26,9 +21,9 @@ import com.stansdevhouse.ui.Toolbar
 @Composable
 fun ExploreScreen(exploreViewModel: ExploreViewModel = viewModel()) {
 
-    val viewState by remember {
-        exploreViewModel.viewState
-    }.collectAsState()
+    val viewState by rememberFlowWithLifecycle(flow = exploreViewModel.viewState).collectAsState(
+        ExploreViewState()
+    )
 
     if (viewState.loading) {
         LinearProgressIndicator(modifier = Modifier.fillMaxWidth())
@@ -38,14 +33,16 @@ fun ExploreScreen(exploreViewModel: ExploreViewModel = viewModel()) {
         Toolbar(title = "Explore", iconClick = { })
         if (viewState.topGames.isNotEmpty()) {
             val topGames = viewState.topGames
-            val pagerState =
-                rememberPagerState(pageCount = topGames.size, initialOffscreenLimit = 3)
-            HorizontalPager(
-                state = pagerState,
-                itemSpacing = 16.dp
-            ) { page ->
-                val game = topGames[page]
+            val pagerState = rememberPagerState(
+                pageCount = topGames.size,
+                initialOffscreenLimit = 3
+            )
+            HorizontalCarouselWithTransition(
+                pagerState = pagerState
+            ) { pageNum, modifier ->
+                val game = topGames[pageNum]
                 CarouselCardNormal(
+                    modifier = modifier,
                     onClick = { id ->
                         exploreViewModel.onCardClicked(id)
                     },
@@ -60,3 +57,4 @@ fun ExploreScreen(exploreViewModel: ExploreViewModel = viewModel()) {
         }
     }
 }
+
