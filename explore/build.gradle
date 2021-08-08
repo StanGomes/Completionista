@@ -40,9 +40,8 @@ android {
 
 dependencies {
     implementation(project(":ui"))
-    implementation(project(":data"))
-    implementation(project(":network"))
     implementation(project(":core"))
+    implementation(project(":domain"))
 
     implementation 'androidx.core:core-ktx:1.6.0'
     implementation "androidx.appcompat:appcompat:$appcompat_version"

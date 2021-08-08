@@ -1,7 +1,7 @@
-package com.stansdevhouse.explore.usecase
+package com.stansdevhouse.domain.usecase
 
 import com.stansdevhouse.core.UseCaseWithParams
-import com.stansdevhouse.explore.ExploreRepository
+import com.stansdevhouse.data.repository.ExploreRepository
 import com.stansdevhouse.network.response.GameDetailsResponse
 import javax.inject.Inject
 

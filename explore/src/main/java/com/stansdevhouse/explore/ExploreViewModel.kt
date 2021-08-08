@@ -3,9 +3,9 @@ package com.stansdevhouse.explore
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.stansdevhouse.explore.usecase.GetTopGamesUseCase
-import com.stansdevhouse.explore.usecase.ShowGameDetailsUseCase
-import com.stansdevhouse.network.response.GamesResultResponse
+import com.stansdevhouse.domain.model.Game
+import com.stansdevhouse.domain.usecase.GetTopGamesUseCase
+import com.stansdevhouse.domain.usecase.ShowGameDetailsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
@@ -14,7 +14,7 @@ import javax.inject.Inject
 data class ExploreViewState(
     val loading: Boolean = false,
     val error: String = "",
-    val topGames: List<GamesResultResponse> = emptyList()
+    val topGames: List<Game> = emptyList()
 )
 
 @HiltViewModel
@@ -33,8 +33,8 @@ class ExploreViewModel @Inject constructor(
             getTopGamesUseCase()
                 .onEach {
                     it.handleResult(
-                        successBlock = { gameResults ->
-                            _viewState.value = ExploreViewState(topGames = gameResults)
+                        successBlock = { gamesResult ->
+                            _viewState.value = ExploreViewState(topGames = gamesResult)
                         },
                         failureBlock = { errorString ->
                             _viewState.value = ExploreViewState(error = errorString)
