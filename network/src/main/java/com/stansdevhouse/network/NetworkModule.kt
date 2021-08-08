@@ -15,7 +15,6 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 class NetworkModule {
-    private val API_KEY = ""
     private val BASE_URL = "https://api.rawg.io/api/"
 
     @Provides
@@ -31,9 +30,9 @@ class NetworkModule {
 
     private fun addQueryParamInterceptor(chain: Interceptor.Chain): Response {
         val original = chain.request()
-        val originalHttpUrl = original.url()
 
-        val url = originalHttpUrl.newBuilder()
+        val url = original.url()
+            .newBuilder()
             .addQueryParameter("key", BuildConfig.RAWG_API_KEY)
             .build()
 

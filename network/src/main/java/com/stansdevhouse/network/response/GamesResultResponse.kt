@@ -24,10 +24,8 @@ data class GamesResultResponse(
     val metacritic: Int,
     @SerializedName("name")
     val name: String,
-    @SerializedName("parent_platforms")
-    val parentPlatforms: List<ParentPlatform>,
     @SerializedName("platforms")
-    val platforms: List<PlatformX>,
+    val platforms: List<Platform>,
     @SerializedName("playtime")
     val playtime: Int,
     @SerializedName("rating")

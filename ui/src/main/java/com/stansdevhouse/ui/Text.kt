@@ -7,6 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.ExperimentalUnitApi
 
@@ -18,7 +19,8 @@ fun SmallCarouselTitle(title: String, modifier: Modifier = Modifier) {
         text = title,
         modifier = modifier,
         fontWeight = FontWeight.ExtraBold,
-        style = MaterialTheme.typography.h5
+        style = MaterialTheme.typography.h5,
+        textAlign = TextAlign.Center
     )
 }
 
@@ -29,19 +31,27 @@ fun ToolbarTitle(title: String, modifier: Modifier = Modifier) {
         text = title,
         modifier = modifier,
         fontWeight = FontWeight.Bold,
-        style = MaterialTheme.typography.h4
+        style = MaterialTheme.typography.h4,
+        textAlign = TextAlign.Start
     )
 }
 
 @ExperimentalMaterialApi
 @Composable
-fun BaseText(text: String, modifier: Modifier, fontWeight: FontWeight, style: TextStyle) {
+fun BaseText(
+    text: String,
+    modifier: Modifier,
+    fontWeight: FontWeight,
+    style: TextStyle,
+    textAlign: TextAlign
+) {
     Text(
         text = text,
         modifier = modifier,
         color = MaterialTheme.colors.secondary,
         fontWeight = fontWeight,
-        style = style
+        style = style,
+        textAlign = textAlign
     )
 }
 

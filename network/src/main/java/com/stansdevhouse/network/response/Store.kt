@@ -7,5 +7,7 @@ data class Store(
     @SerializedName("id")
     val id: Int,
     @SerializedName("store")
-    val store: StoreX
+    val store: StoreDetail,
+    @SerializedName("url")
+    val url: String
 )

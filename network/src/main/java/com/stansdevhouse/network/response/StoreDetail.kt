@@ -3,7 +3,7 @@ package com.stansdevhouse.network.response
 
 import com.google.gson.annotations.SerializedName
 
-data class StoreX(
+data class StoreDetail(
     @SerializedName("domain")
     val domain: String,
     @SerializedName("games_count")

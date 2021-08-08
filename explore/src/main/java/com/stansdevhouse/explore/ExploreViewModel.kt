@@ -1,7 +1,10 @@
 package com.stansdevhouse.explore
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.stansdevhouse.explore.usecase.GetTopGamesUseCase
+import com.stansdevhouse.explore.usecase.ShowGameDetailsUseCase
 import com.stansdevhouse.network.response.GamesResultResponse
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
@@ -15,7 +18,10 @@ data class ExploreViewState(
 )
 
 @HiltViewModel
-class ExploreViewModel @Inject constructor(getTopGamesUseCase: GetTopGamesUseCase) : ViewModel() {
+class ExploreViewModel @Inject constructor(
+    getTopGamesUseCase: GetTopGamesUseCase,
+    private val showGameDetailsUseCase: ShowGameDetailsUseCase
+) : ViewModel() {
 
     private val _viewState: MutableStateFlow<ExploreViewState> =
         MutableStateFlow(ExploreViewState())
@@ -38,6 +44,20 @@ class ExploreViewModel @Inject constructor(getTopGamesUseCase: GetTopGamesUseCas
                         }
                     )
                 }.collect()
+        }
+    }
+
+    fun onCardClicked(id: Int) {
+        viewModelScope.launch {
+            showGameDetailsUseCase(params = ShowGameDetailsUseCase.Params(gameId = id))
+                .onEach {
+                    it.handleResult(
+                        successBlock = { gameDetails ->
+                            Log.d("STANSTAN", "onCardClicked: ${gameDetails.description}")
+                        }
+                    )
+                }
+                .collect()
         }
     }
 }
