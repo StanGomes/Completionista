@@ -1,5 +1,6 @@
 package com.stansdevhouse.explore
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.stansdevhouse.domain.model.Game
@@ -26,6 +27,7 @@ class ExploreViewModel @Inject constructor(
         _viewState.stateIn(viewModelScope, SharingStarted.WhileSubscribed(), ExploreViewState())
 
     init {
+        Log.d("STANSTAN", "Explore VM init")
         viewModelScope.launch {
             getTopGamesUseCase()
                 .onEach {
@@ -42,5 +44,10 @@ class ExploreViewModel @Inject constructor(
                     )
                 }.collect()
         }
+    }
+
+    override fun onCleared() {
+        Log.d("STANSTAN", "Explore VM clear")
+        super.onCleared()
     }
 }
