@@ -18,7 +18,7 @@ import com.stansdevhouse.ui.*
 @ExperimentalUnitApi
 @ExperimentalPagerApi
 @Composable
-fun ExploreScreen(exploreViewModel: ExploreViewModel, openShowDetails: (Int) -> Unit) {
+fun ExploreScreen(exploreViewModel: ExploreViewModel, openShowDetails: (Long) -> Unit) {
 
     val viewState by rememberFlowWithLifecycle(flow = exploreViewModel.viewState).collectAsState(
         ExploreViewState()
@@ -42,8 +42,7 @@ fun ExploreScreen(exploreViewModel: ExploreViewModel, openShowDetails: (Int) -> 
                 val game = topGames[pageNum]
                 CarouselCardNormal(
                     modifier = modifier,
-                    onClick = { id -> openShowDetails(id) },
-                    id = game.id,
+                    onClick = { openShowDetails(game.id) },
                     title = game.title,
                     imageUrl = game.imageUrl
                 )

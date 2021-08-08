@@ -37,7 +37,7 @@ internal fun AppNavigation(
 @ExperimentalPagerApi
 @ExperimentalUnitApi
 @ExperimentalMaterialApi
-private fun NavGraphBuilder.addExploreScreen(openShowDetails: (Int) -> Unit) {
+private fun NavGraphBuilder.addExploreScreen(openShowDetails: (Long) -> Unit) {
     composable(Screen.Explore.route) {
         ExploreScreen(
             exploreViewModel = hiltViewModel(),
@@ -51,7 +51,7 @@ private fun NavGraphBuilder.addGameDetailsScreen() {
     composable(
         route = Screen.GameDetails.route,
         arguments = listOf(navArgument(Argument.ARG_GAME_ID) {
-            type = NavType.IntType
+            type = NavType.LongType
         })
     ) {
         GameDetails(gameDetailViewModel = hiltViewModel())
@@ -61,6 +61,6 @@ private fun NavGraphBuilder.addGameDetailsScreen() {
 private sealed class Screen(val route: String) {
     object Explore : Screen("explore")
     object GameDetails : Screen("game/{${Argument.ARG_GAME_ID}}") {
-        fun createRoute(gameId: Int): String = "game/$gameId"
+        fun createRoute(gameId: Long): String = "game/$gameId"
     }
 }

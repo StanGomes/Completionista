@@ -23,11 +23,10 @@ fun CarouselCardNormal(
     modifier: Modifier = Modifier,
     title: String,
     imageUrl: String,
-    id: Int,
-    onClick: (Int) -> Unit
+    onClick: () -> Unit
 ) {
     Card(
-        onClick = { onClick(id) },
+        onClick = onClick,
         modifier = modifier,
         shape = RoundedCornerShape(8.dp),
         backgroundColor = MaterialTheme.colors.surface
@@ -53,7 +52,6 @@ fun CarouselCardNormalPreview() {
     CarouselCardNormal(
         title = "Counter Strike: Global Offensive somme more ",
         imageUrl = "https://media.rawg.io/media/games/84d/84da2ac3fdfc6507807a1808595afb12.jpg",
-        onClick = {},
-        id = 100
+        onClick = {}
     )
 }
