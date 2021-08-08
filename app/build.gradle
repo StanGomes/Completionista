@@ -47,6 +47,7 @@ dependencies {
     implementation(project(":explore"))
     implementation(project(":core"))
     implementation(project(":network"))
+    implementation(project(":domain"))
 
     implementation "androidx.core:core-ktx:$core_ktx_version"
     implementation "androidx.appcompat:appcompat:$appcompat_version"

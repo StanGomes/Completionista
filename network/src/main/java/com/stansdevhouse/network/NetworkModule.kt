@@ -31,7 +31,7 @@ class NetworkModule {
     private fun addQueryParamInterceptor(chain: Interceptor.Chain): Response {
         val original = chain.request()
 
-        val url = original.url()
+        val url = original.url
             .newBuilder()
             .addQueryParameter("key", BuildConfig.RAWG_API_KEY)
             .build()
