@@ -1,4 +1,4 @@
-package com.stansdevhouse.explore
+package com.stansdevhouse.data.repository
 
 import com.stansdevhouse.network.RawgApiService
 import com.stansdevhouse.network.response.GameDetailsResponse

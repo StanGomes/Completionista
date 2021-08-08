@@ -50,8 +50,8 @@ fun ExploreScreen(exploreViewModel: ExploreViewModel = viewModel()) {
                         exploreViewModel.onCardClicked(id)
                     },
                     id = game.id,
-                    title = game.name,
-                    imageUrl = game.backgroundImage
+                    title = game.title,
+                    imageUrl = game.imageUrl
                 )
             }
         }

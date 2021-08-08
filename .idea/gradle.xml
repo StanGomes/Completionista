@@ -15,6 +15,7 @@
             <option value="$PROJECT_DIR$/collection" />
             <option value="$PROJECT_DIR$/core" />
             <option value="$PROJECT_DIR$/data" />
+            <option value="$PROJECT_DIR$/domain" />
             <option value="$PROJECT_DIR$/explore" />
             <option value="$PROJECT_DIR$/game-details" />
             <option value="$PROJECT_DIR$/network" />
