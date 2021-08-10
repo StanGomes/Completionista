@@ -1,4 +1,4 @@
-package com.stansdevhouse.core
+package com.stansdevhouse.domain
 
 sealed class Result<out T> {
     class Success<out T>(val data: T) : Result<T>()
@@ -6,9 +6,9 @@ sealed class Result<out T> {
     object Loading : Result<Nothing>()
 
     fun handleResult(
-        onSuccess: (T) -> Unit = {},
+        onLoading: () -> Unit = {},
         onFailure: (String) -> Unit = {},
-        onLoading: () -> Unit = {}
+        onSuccess: (T) -> Unit = {}
     ) {
         when (this) {
             is Success -> onSuccess(data)

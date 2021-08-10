@@ -1,9 +1,8 @@
 package com.stansdevhouse.domain.usecase
 
-import com.stansdevhouse.core.UseCase
+import com.stansdevhouse.data.entities.Game
+import com.stansdevhouse.data.mappers.GamesResultResponseToGame
 import com.stansdevhouse.data.repository.ExploreRepository
-import com.stansdevhouse.domain.mappers.GamesResultResponseToGame
-import com.stansdevhouse.domain.model.Game
 import javax.inject.Inject
 
 class GetTopGamesUseCase @Inject constructor(
