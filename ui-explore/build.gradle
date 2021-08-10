@@ -40,7 +40,6 @@ android {
 
 dependencies {
     implementation(project(':ui-common'))
-    implementation(project(":core"))
     implementation(project(":domain"))
 
     implementation "androidx.core:core-ktx:$core_ktx_version"

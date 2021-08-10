@@ -13,7 +13,7 @@ import androidx.navigation.compose.navArgument
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.stansdevhouse.core.Argument
 import com.stansdevhouse.explore.ExploreScreen
-import com.stansdevhouse.game_details.GameDetails
+import com.stansdevhouse.game_details.GameDetailsScreen
 
 @ExperimentalMaterialApi
 @ExperimentalUnitApi
@@ -54,7 +54,7 @@ private fun NavGraphBuilder.addGameDetailsScreen() {
             type = NavType.LongType
         })
     ) {
-        GameDetails(gameDetailViewModel = hiltViewModel())
+        GameDetailsScreen(gameDetailViewModel = hiltViewModel())
     }
 }
 

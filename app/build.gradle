@@ -42,12 +42,11 @@ android {
 }
 
 dependencies {
+    implementation(project(':domain'))
 
+    implementation(project(':utils'))
     implementation(project(':ui-collection'))
     implementation(project(':ui-explore'))
-    implementation(project(":core"))
-    implementation(project(":network"))
-    implementation(project(":domain"))
     implementation(project(":ui-gamedetails"))
 
     implementation "androidx.core:core-ktx:$core_ktx_version"

@@ -1,5 +1,6 @@
-package com.stansdevhouse.core
+package com.stansdevhouse.domain.usecase
 
+import com.stansdevhouse.domain.Result
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
@@ -8,13 +9,13 @@ import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.withTimeout
 import java.util.concurrent.TimeUnit
 
-abstract class UseCase<out T> {
+abstract class UseCaseWithParams<out T, in Params> {
 
-    operator fun invoke(timeoutMs: Long = defaultTimeoutMs): Flow<Result<T>> {
+    operator fun invoke(params: Params, timeoutMs: Long = defaultTimeoutMs): Flow<Result<T>> {
         return flow {
             withTimeout(timeoutMs) {
                 emit(Result.Loading)
-                val data = doWork()
+                val data = doWork(params)
                 data?.let {
                     emit(Result.Success(it))
                 } ?: run {
@@ -26,7 +27,7 @@ abstract class UseCase<out T> {
         }.flowOn(Dispatchers.IO)
     }
 
-    protected abstract suspend fun doWork(): T?
+    protected abstract suspend fun doWork(params: Params): T?
 
     companion object {
         private val defaultTimeoutMs = TimeUnit.MINUTES.toMillis(5)

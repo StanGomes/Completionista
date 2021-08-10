@@ -1,6 +1,6 @@
-package com.stansdevhouse.domain.mappers
+package com.stansdevhouse.data.mappers
 
-import com.stansdevhouse.domain.model.Game
+import com.stansdevhouse.data.entities.Game
 import com.stansdevhouse.network.response.GamesResultResponse
 import javax.inject.Inject
 import javax.inject.Singleton
