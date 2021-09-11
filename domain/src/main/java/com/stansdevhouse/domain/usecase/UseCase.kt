@@ -30,6 +30,6 @@ abstract class UseCase<out T> {
     protected abstract suspend fun doWork(): T?
 
     companion object {
-        private val defaultTimeoutMs = TimeUnit.MINUTES.toMillis(5)
+        private val defaultTimeoutMs = TimeUnit.MINUTES.toMillis(1)
     }
 }

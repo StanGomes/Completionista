@@ -29,7 +29,7 @@ fun Toolbar(title: String, iconClick: () -> Unit) {
             Icon(
                 Icons.Rounded.Search,
                 contentDescription = "Search",
-                tint = MaterialTheme.colors.secondary,
+                tint = MaterialTheme.colors.onSurface,
                 modifier = Modifier.size(32.dp)
             )
         }

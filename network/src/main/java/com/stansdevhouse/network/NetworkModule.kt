@@ -18,11 +18,13 @@ class NetworkModule {
     private val BASE_URL = "https://api.rawg.io/api/"
 
     @Provides
+    @Singleton
     fun providesHttpLoggingInterceptor() = HttpLoggingInterceptor().apply {
         level = HttpLoggingInterceptor.Level.BODY
     }
 
     @Provides
+    @Singleton
     fun providesOkHttpClient(httpLoggingInterceptor: HttpLoggingInterceptor): OkHttpClient =
         OkHttpClient.Builder().addInterceptor(httpLoggingInterceptor)
             .addInterceptor { chain -> addQueryParamInterceptor(chain) }
@@ -44,6 +46,7 @@ class NetworkModule {
     }
 
     @Provides
+    @Singleton
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit = Retrofit.Builder()
         .addConverterFactory(GsonConverterFactory.create())
         .baseUrl(BASE_URL)

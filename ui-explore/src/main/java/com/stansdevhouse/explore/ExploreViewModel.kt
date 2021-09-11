@@ -2,7 +2,7 @@ package com.stansdevhouse.explore
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.stansdevhouse.data.entities.Game
+import com.stansdevhouse.db.entities.Game
 import com.stansdevhouse.domain.usecase.GetTopGamesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*

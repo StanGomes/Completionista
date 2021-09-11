@@ -1,8 +1,8 @@
 package com.stansdevhouse.domain.usecase
 
-import com.stansdevhouse.data.entities.GameDetails
 import com.stansdevhouse.data.mappers.GameDetailsResponseToGameDetails
 import com.stansdevhouse.data.repository.ExploreRepository
+import com.stansdevhouse.db.entities.GameDetails
 import javax.inject.Inject
 
 class ShowGameDetailsUseCase @Inject constructor(

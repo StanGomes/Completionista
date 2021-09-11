@@ -4,7 +4,7 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.stansdevhouse.core.Argument
-import com.stansdevhouse.data.entities.GameDetails
+import com.stansdevhouse.db.entities.GameDetails
 import com.stansdevhouse.domain.usecase.ShowGameDetailsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
@@ -18,12 +18,12 @@ class GameDetailViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val _gameDetails: MutableStateFlow<GameDetails> =
-        MutableStateFlow(GameDetails(description = ""))
+        MutableStateFlow(GameDetails())
     internal val gameDetails: StateFlow<GameDetails> =
         _gameDetails.stateIn(
             viewModelScope,
             SharingStarted.WhileSubscribed(),
-            GameDetails(description = "")
+            GameDetails()
         )
 
 
