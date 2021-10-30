@@ -14,7 +14,7 @@
         android:theme="@style/Theme.Completionista">
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name"
+            android:exported="true"
             android:theme="@style/Theme.Completionista.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
