@@ -2,18 +2,16 @@ package com.stansdevhouse.ui
 
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.graphicsLayer
-import androidx.compose.ui.unit.ExperimentalUnitApi
 import androidx.compose.ui.util.lerp
-import com.google.accompanist.pager.*
+import com.google.accompanist.pager.HorizontalPager
+import com.google.accompanist.pager.PagerScope
+import com.google.accompanist.pager.PagerState
+import com.google.accompanist.pager.calculateCurrentOffsetForPage
 import kotlin.math.absoluteValue
 
-@ExperimentalMaterialApi
-@ExperimentalUnitApi
-@ExperimentalPagerApi
 @Composable
 fun HorizontalCarouselWithTransition(
     pagerState: PagerState,
@@ -30,7 +28,6 @@ fun HorizontalCarouselWithTransition(
 /**
  * https://google.github.io/accompanist/pager/
  */
-@ExperimentalPagerApi
 private fun PagerScope.carouselTransitionModifier(page: Int) =
     Modifier
         .graphicsLayer {

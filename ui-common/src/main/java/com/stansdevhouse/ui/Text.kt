@@ -9,12 +9,10 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.ExperimentalUnitApi
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.text.HtmlCompat
 import com.google.android.material.textview.MaterialTextView
 
-@ExperimentalUnitApi
 @Composable
 fun SmallCarouselTitle(title: String, modifier: Modifier = Modifier) {
     BaseText(
@@ -72,14 +70,12 @@ fun BaseText(
     )
 }
 
-@ExperimentalUnitApi
 @Preview
 @Composable
 fun CardTitlePreview() {
     SmallCarouselTitle(title = "Grand Theft Auto 5")
 }
 
-@ExperimentalUnitApi
 @Preview
 @Composable
 fun ToolbarTitlePreview() {

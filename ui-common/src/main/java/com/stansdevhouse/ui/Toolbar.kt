@@ -2,7 +2,6 @@ package com.stansdevhouse.ui
 
 import android.util.Log
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.MaterialTheme
@@ -14,7 +13,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-@ExperimentalMaterialApi
 @Composable
 fun Toolbar(title: String, iconClick: () -> Unit) {
     Row(
@@ -36,7 +34,6 @@ fun Toolbar(title: String, iconClick: () -> Unit) {
     }
 }
 
-@ExperimentalMaterialApi
 @Composable
 @Preview
 fun ToolbarPreview() {

@@ -1,8 +1,6 @@
 package com.stansdevhouse.completionista
 
-import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.unit.ExperimentalUnitApi
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
@@ -10,14 +8,10 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
-import com.google.accompanist.pager.ExperimentalPagerApi
 import com.stansdevhouse.core.Argument
 import com.stansdevhouse.explore.ExploreScreen
 import com.stansdevhouse.game_details.GameDetailsScreen
 
-@ExperimentalMaterialApi
-@ExperimentalUnitApi
-@ExperimentalPagerApi
 @Composable
 internal fun AppNavigation(
     navController: NavHostController
@@ -34,9 +28,6 @@ internal fun AppNavigation(
     }
 }
 
-@ExperimentalPagerApi
-@ExperimentalUnitApi
-@ExperimentalMaterialApi
 private fun NavGraphBuilder.addExploreScreen(openShowDetails: (Long) -> Unit) {
     composable(Screen.Explore.route) {
         ExploreScreen(

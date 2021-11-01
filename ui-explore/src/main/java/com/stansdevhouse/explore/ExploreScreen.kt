@@ -3,14 +3,15 @@ package com.stansdevhouse.explore
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.material.*
+import androidx.compose.material.LinearProgressIndicator
+import androidx.compose.material.Scaffold
+import androidx.compose.material.SnackbarDuration
+import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.ExperimentalUnitApi
-import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.rememberPagerState
 import com.stansdevhouse.ui.CarouselCardNormal
 import com.stansdevhouse.ui.HorizontalCarouselWithTransition
@@ -18,9 +19,6 @@ import com.stansdevhouse.ui.Toolbar
 import com.stansdevhouse.ui.rememberFlowWithLifecycle
 import kotlinx.coroutines.launch
 
-@ExperimentalMaterialApi
-@ExperimentalUnitApi
-@ExperimentalPagerApi
 @Composable
 fun ExploreScreen(exploreViewModel: ExploreViewModel, openShowDetails: (Long) -> Unit) {
 
@@ -71,6 +69,5 @@ fun ExploreScreen(exploreViewModel: ExploreViewModel, openShowDetails: (Long) ->
             }
         }
     }
-
 }
 
