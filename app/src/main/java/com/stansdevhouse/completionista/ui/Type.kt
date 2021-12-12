@@ -1,6 +1,6 @@
 package com.stansdevhouse.completionista.ui
 
-import androidx.compose.material.Typography
+import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
@@ -25,67 +25,110 @@ private val Poppins = FontFamily(
     )
 )
 
-val typography = Typography(
-    h4 = TextStyle(
+val AppTypography = Typography(
+    displayLarge = TextStyle(
         fontFamily = Nunito,
-        fontWeight = FontWeight.Normal,
-        fontSize = 36.sp
+        fontWeight = FontWeight.W400,
+        fontSize = 57.sp,
+        lineHeight = 64.sp,
+        letterSpacing = (-0.25).sp,
     ),
-    h5 = TextStyle(
+    displayMedium = TextStyle(
         fontFamily = Nunito,
-        fontWeight = FontWeight.Normal,
-        fontSize = 26.sp,
+        fontWeight = FontWeight.W400,
+        fontSize = 45.sp,
+        lineHeight = 52.sp,
+        letterSpacing = 0.sp,
     ),
-    h6 = TextStyle(
+    displaySmall = TextStyle(
         fontFamily = Nunito,
-        fontWeight = FontWeight.SemiBold,
-        fontSize = 21.sp
+        fontWeight = FontWeight.W400,
+        fontSize = 36.sp,
+        lineHeight = 44.sp,
+        letterSpacing = 0.sp,
     ),
-    subtitle1 = TextStyle(
+    headlineLarge = TextStyle(
         fontFamily = Nunito,
-        fontWeight = FontWeight.Normal,
-        fontSize = 17.sp
+        fontWeight = FontWeight.W400,
+        fontSize = 32.sp,
+        lineHeight = 40.sp,
+        letterSpacing = 0.sp,
     ),
-    subtitle2 = TextStyle(
+    headlineMedium = TextStyle(
         fontFamily = Nunito,
-        fontWeight = FontWeight.SemiBold,
-        fontSize = 15.sp
+        fontWeight = FontWeight.W400,
+        fontSize = 28.sp,
+        lineHeight = 36.sp,
+        letterSpacing = 0.sp,
     ),
-    body1 = TextStyle(
+    headlineSmall = TextStyle(
+        fontFamily = Nunito,
+        fontWeight = FontWeight.W400,
+        fontSize = 24.sp,
+        lineHeight = 32.sp,
+        letterSpacing = 0.sp,
+    ),
+    titleLarge = TextStyle(
+        fontFamily = Nunito,
+        fontWeight = FontWeight.W400,
+        fontSize = 22.sp,
+        lineHeight = 28.sp,
+        letterSpacing = 0.sp,
+    ),
+    titleMedium = TextStyle(
+        fontFamily = Nunito,
+        fontWeight = FontWeight.Medium,
+        fontSize = 16.sp,
+        lineHeight = 24.sp,
+        letterSpacing = 0.1.sp,
+    ),
+    titleSmall = TextStyle(
+        fontFamily = Nunito,
+        fontWeight = FontWeight.Medium,
+        fontSize = 14.sp,
+        lineHeight = 20.sp,
+        letterSpacing = 0.1.sp,
+    ),
+    labelLarge = TextStyle(
+        fontFamily = Nunito,
+        fontWeight = FontWeight.Medium,
+        fontSize = 14.sp,
+        lineHeight = 20.sp,
+        letterSpacing = 0.1.sp,
+    ),
+    bodyLarge = TextStyle(
         fontFamily = Poppins,
-        fontWeight = FontWeight.Normal,
-        fontSize = 15.sp
+        fontWeight = FontWeight.W400,
+        fontSize = 16.sp,
+        lineHeight = 24.sp,
+        letterSpacing = 0.5.sp,
     ),
-    body2 = TextStyle(
+    bodyMedium = TextStyle(
+        fontFamily = Poppins,
+        fontWeight = FontWeight.W400,
+        fontSize = 14.sp,
+        lineHeight = 20.sp,
+        letterSpacing = 0.25.sp,
+    ),
+    bodySmall = TextStyle(
+        fontFamily = Poppins,
+        fontWeight = FontWeight.W400,
+        fontSize = 12.sp,
+        lineHeight = 16.sp,
+        letterSpacing = 0.4.sp,
+    ),
+    labelMedium = TextStyle(
         fontFamily = Nunito,
-        fontWeight = FontWeight.Normal,
-        fontSize = 13.sp
+        fontWeight = FontWeight.Medium,
+        fontSize = 12.sp,
+        lineHeight = 16.sp,
+        letterSpacing = 0.5.sp,
     ),
-    button = TextStyle(
-        fontFamily = Poppins,
-        fontWeight = FontWeight.SemiBold,
-        fontSize = 13.sp
+    labelSmall = TextStyle(
+        fontFamily = Nunito,
+        fontWeight = FontWeight.Medium,
+        fontSize = 11.sp,
+        lineHeight = 16.sp,
+        letterSpacing = 0.5.sp,
     ),
-    caption = TextStyle(
-        fontFamily = Poppins,
-        fontWeight = FontWeight.Light,
-        fontSize = 12.sp
-    ),
-    overline = TextStyle(
-        fontFamily = Poppins,
-        fontWeight = FontWeight.Normal,
-        fontSize = 10.sp
-    ),
-    /* Other default text styles to override
-button = TextStyle(
-    fontFamily = FontFamily.Default,
-    fontWeight = FontWeight.W500,
-    fontSize = 14.sp
-),
-caption = TextStyle(
-    fontFamily = FontFamily.Default,
-    fontWeight = FontWeight.Normal,
-    fontSize = 12.sp
-)
-*/
 )

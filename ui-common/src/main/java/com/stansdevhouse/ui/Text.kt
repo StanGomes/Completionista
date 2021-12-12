@@ -1,7 +1,7 @@
 package com.stansdevhouse.ui
 
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -18,9 +18,9 @@ fun SmallCarouselTitle(title: String, modifier: Modifier = Modifier) {
     BaseText(
         text = title,
         modifier = modifier,
-        color = MaterialTheme.colors.secondary,
+        color = MaterialTheme.colorScheme.primary,
         fontWeight = FontWeight.ExtraBold,
-        style = MaterialTheme.typography.h5,
+        style = MaterialTheme.typography.displayMedium,
         textAlign = TextAlign.Center
     )
 }
@@ -30,9 +30,7 @@ fun HtmlTextView(text: String, modifier: Modifier = Modifier) {
     AndroidView(
         modifier = modifier,
         factory = { context ->
-            MaterialTextView(context).apply {
-
-            }
+            MaterialTextView(context)
         },
         update = { view ->
             view.text = HtmlCompat.fromHtml(text, HtmlCompat.FROM_HTML_MODE_COMPACT)
@@ -42,12 +40,9 @@ fun HtmlTextView(text: String, modifier: Modifier = Modifier) {
 
 @Composable
 fun ToolbarTitle(title: String, modifier: Modifier = Modifier) {
-    BaseText(
+    Text(
         text = title,
-        modifier = modifier,
-        fontWeight = FontWeight.Bold,
-        style = MaterialTheme.typography.h4,
-        textAlign = TextAlign.Start
+        modifier = modifier
     )
 }
 
@@ -55,7 +50,7 @@ fun ToolbarTitle(title: String, modifier: Modifier = Modifier) {
 fun BaseText(
     text: String,
     modifier: Modifier = Modifier,
-    color: Color = MaterialTheme.colors.onSurface,
+    color: Color = MaterialTheme.colorScheme.onSurface,
     fontWeight: FontWeight = FontWeight.Normal,
     style: TextStyle = TextStyle.Default,
     textAlign: TextAlign = TextAlign.Start
