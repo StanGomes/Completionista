@@ -10,6 +10,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.stansdevhouse.core.Argument
 import com.stansdevhouse.explore.ExploreScreen
+import com.stansdevhouse.explore.ExploreViewModel
 import com.stansdevhouse.game_details.GameDetailsScreen
 
 @Composable
@@ -31,7 +32,7 @@ internal fun AppNavigation(
 private fun NavGraphBuilder.addExploreScreen(openShowDetails: (Long) -> Unit) {
     composable(Screen.Explore.route) {
         ExploreScreen(
-            exploreViewModel = hiltViewModel(),
+            uiState = hiltViewModel<ExploreViewModel>().uiState,
             openShowDetails = { gameId ->
                 openShowDetails(gameId)
             })

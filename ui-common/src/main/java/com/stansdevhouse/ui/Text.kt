@@ -18,9 +18,9 @@ fun SmallCarouselTitle(title: String, modifier: Modifier = Modifier) {
     BaseText(
         text = title,
         modifier = modifier,
-        color = MaterialTheme.colorScheme.primary,
+        color = MaterialTheme.colorScheme.onSurface,
         fontWeight = FontWeight.ExtraBold,
-        style = MaterialTheme.typography.displayMedium,
+        style = MaterialTheme.typography.headlineMedium,
         textAlign = TextAlign.Center
     )
 }

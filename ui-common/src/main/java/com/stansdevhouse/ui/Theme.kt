@@ -1,10 +1,11 @@
-package com.stansdevhouse.completionista.ui
+package com.stansdevhouse.ui
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import com.stansdevhouse.ui.*
 
 private val LightThemeColors = lightColorScheme(
     primary = md_theme_light_primary,
