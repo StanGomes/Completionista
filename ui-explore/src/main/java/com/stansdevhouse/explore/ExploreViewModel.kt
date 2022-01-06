@@ -1,11 +1,15 @@
 package com.stansdevhouse.explore
 
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.stansdevhouse.db.entities.Game
 import com.stansdevhouse.domain.usecase.GetTopGamesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -20,10 +24,8 @@ class ExploreViewModel @Inject constructor(
     getTopGamesUseCase: GetTopGamesUseCase
 ) : ViewModel() {
 
-    private val _viewState: MutableStateFlow<ExploreViewState> =
-        MutableStateFlow(ExploreViewState())
-    internal val viewState: StateFlow<ExploreViewState> =
-        _viewState.stateIn(viewModelScope, SharingStarted.WhileSubscribed(), ExploreViewState())
+    var uiState by mutableStateOf(ExploreViewState())
+        private set
 
     init {
         viewModelScope.launch {
@@ -31,13 +33,13 @@ class ExploreViewModel @Inject constructor(
                 .onEach {
                     it.handleResult(
                         onSuccess = { gamesResult ->
-                            _viewState.value = ExploreViewState(topGames = gamesResult)
+                            uiState = ExploreViewState(topGames = gamesResult)
                         },
                         onFailure = { errorString ->
-                            _viewState.value = ExploreViewState(error = errorString)
+                            uiState = ExploreViewState(error = errorString)
                         },
                         onLoading = {
-                            _viewState.value = ExploreViewState(loading = true)
+                            uiState = ExploreViewState(loading = true)
                         }
                     )
                 }.collect()

@@ -51,6 +51,7 @@ dependencies {
     implementation(project(':ui-collection'))
     implementation(project(':ui-explore'))
     implementation(project(":ui-gamedetails"))
+    implementation(project(":ui-common"))
 
     implementation "androidx.core:core-ktx:$core_ktx_version"
     implementation "androidx.appcompat:appcompat:$appcompat_version"

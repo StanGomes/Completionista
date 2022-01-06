@@ -1,72 +1,61 @@
 package com.stansdevhouse.explore
 
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.LinearProgressIndicator
-import androidx.compose.material.rememberScaffoldState
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import com.google.accompanist.pager.rememberPagerState
 import com.stansdevhouse.ui.CarouselCardNormal
+import com.stansdevhouse.ui.CompletionistaTheme
 import com.stansdevhouse.ui.HorizontalCarouselWithTransition
 import com.stansdevhouse.ui.Toolbar
-import com.stansdevhouse.ui.rememberFlowWithLifecycle
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ExploreScreen(exploreViewModel: ExploreViewModel, openShowDetails: (Long) -> Unit) {
-
-    val viewState by rememberFlowWithLifecycle(flow = exploreViewModel.viewState).collectAsState(
-        ExploreViewState()
-    )
-
-    val scaffoldState = rememberScaffoldState()
-
-    // No snackbars in Material3 yet! -.-
-//    LaunchedEffect(viewState) {
-//        if (viewState.error.isNotBlank()) {
-//            launch {
-//                scaffoldState.showSnackbar(
-//                    viewState.error,
-//                    duration = SnackbarDuration.Short
-//                )
-//            }
-//        }
-//    }
+fun ExploreScreen(uiState: ExploreViewState, openShowDetails: (Long) -> Unit) {
 
     Scaffold(
         topBar = {
             Toolbar(title = "Explore", iconClick = { })
         }
     ) {
-        if (viewState.loading) {
+        if (uiState.loading) {
             LinearProgressIndicator(modifier = Modifier.fillMaxWidth())
         }
-        Column(modifier = Modifier.fillMaxSize()) {
-            if (viewState.topGames.isNotEmpty()) {
-                val topGames = viewState.topGames
+        LazyColumn {
+            item {
+                val topGames = uiState.topGames
                 val pagerState = rememberPagerState(
                     pageCount = topGames.size,
                     initialOffscreenLimit = 3
                 )
-                HorizontalCarouselWithTransition(
-                    pagerState = pagerState
-                ) { pageNum, modifier ->
-                    val game = topGames[pageNum]
-                    CarouselCardNormal(
-                        modifier = modifier,
-                        onClick = { openShowDetails(game.id) },
-                        title = game.title,
-                        imageUrl = game.imageUrl
-                    )
+                if (topGames.isNotEmpty()) {
+                    HorizontalCarouselWithTransition(
+                        pagerState = pagerState
+                    ) { pageNum, modifier ->
+                        val game = topGames[pageNum]
+                        CarouselCardNormal(
+                            modifier = modifier,
+                            onClick = { openShowDetails(game.id) },
+                            title = game.title,
+                            imageUrl = game.imageUrl
+                        )
+                    }
                 }
             }
         }
+    }
+}
+
+@Preview
+@Composable
+fun ExploreScreenPreview() {
+    CompletionistaTheme {
+        ExploreScreen(uiState = ExploreViewState(), openShowDetails = {})
     }
 }
 

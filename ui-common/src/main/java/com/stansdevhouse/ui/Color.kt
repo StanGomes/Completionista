@@ -1,4 +1,4 @@
-package com.stansdevhouse.completionista.ui
+package com.stansdevhouse.ui
 
 import androidx.compose.ui.graphics.Color
 
